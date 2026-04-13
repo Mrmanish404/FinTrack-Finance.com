@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/FinTrack-Finance.com/static/css/main.f67eeb31.css",
-    "main.js": "/FinTrack-Finance.com/static/js/main.e31fda8c.js",
+    "main.js": "/FinTrack-Finance.com/static/js/main.d263e87f.js",
     "index.html": "/FinTrack-Finance.com/index.html",
     "main.f67eeb31.css.map": "/FinTrack-Finance.com/static/css/main.f67eeb31.css.map",
-    "main.e31fda8c.js.map": "/FinTrack-Finance.com/static/js/main.e31fda8c.js.map"
+    "main.d263e87f.js.map": "/FinTrack-Finance.com/static/js/main.d263e87f.js.map"
   },
   "entrypoints": [
     "static/css/main.f67eeb31.css",
-    "static/js/main.e31fda8c.js"
+    "static/js/main.d263e87f.js"
   ]
 }
