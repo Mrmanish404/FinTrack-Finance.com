@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FinTrack-Finance.com/static/css/main.f67eeb31.css",
+    "main.js": "/FinTrack-Finance.com/static/js/main.92df01a9.js",
+    "index.html": "/FinTrack-Finance.com/index.html",
+    "main.f67eeb31.css.map": "/FinTrack-Finance.com/static/css/main.f67eeb31.css.map",
+    "main.92df01a9.js.map": "/FinTrack-Finance.com/static/js/main.92df01a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f67eeb31.css",
+    "static/js/main.92df01a9.js"
+  ]
+}
