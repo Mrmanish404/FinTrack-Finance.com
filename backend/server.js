@@ -11,9 +11,22 @@ if (!process.env.JWT_SECRET) {
   process.exit(1);
 }
 
-if (!process.env.MONGODB_URI) {
-  console.error('❌ MONGODB_URI is required');
+const rawMongoUri = process.env.MONGODB_URI?.trim();
+const missingMongoUri = !rawMongoUri || /YOUR_ACTUAL|<username>|<password>/i.test(rawMongoUri);
+const isDevMode = process.env.NODE_ENV !== 'production';
+const mongoUri = missingMongoUri
+  ? isDevMode
+    ? 'mongodb://127.0.0.1:27017/finance-tracker'
+    : null
+  : rawMongoUri;
+
+if (!mongoUri) {
+  console.error('❌ MONGODB_URI must be configured with a valid connection string. Update backend/.env or run a local MongoDB instance when not in production.');
   process.exit(1);
+}
+
+if (missingMongoUri && isDevMode) {
+  console.warn('⚠️ MONGODB_URI is not configured or still contains placeholders. Falling back to local MongoDB at mongodb://127.0.0.1:27017/finance-tracker');
 }
 
 // ✅ Middleware
@@ -48,7 +61,7 @@ app.use((err, req, res, next) => {
 // ✅ Start server only after DB connects
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(mongoUri)
   .then(() => {
     console.log('✅ MongoDB connected');
 

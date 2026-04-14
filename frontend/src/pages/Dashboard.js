@@ -130,12 +130,20 @@ export default function Dashboard() {
 
   const fmt = n => `₹${Number(n || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
 
+  if (loading) {
+    return (
+      <div style={{ padding: 40, textAlign: 'center' }}>
+        <div className="spinner" />
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div>
           <h1 className="page-title">Dashboard</h1>
-          <p className="page-subtitle">// your financial overview</p>
+          <p className="page-subtitle">{"// your financial overview"}</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <div className="month-nav">
@@ -179,7 +187,7 @@ export default function Dashboard() {
         {/* Daily line chart */}
         <div className="chart-card chart-full">
           <div className="chart-title">Daily Flow</div>
-          <div className="chart-subtitle">// income vs expenses by day · {format(currentDate, 'MMMM yyyy')}</div>
+          <div className="chart-subtitle">{"// income vs expenses by day · "}{format(currentDate, 'MMMM yyyy')}</div>
           <div style={{ height: 220 }}>
             <Line data={lineData} options={{ ...chartDefaults, maintainAspectRatio: false, plugins: { ...chartDefaults.plugins, legend: { ...chartDefaults.plugins.legend, position: 'top' } } }} />
           </div>
@@ -188,7 +196,7 @@ export default function Dashboard() {
         {/* Expense breakdown donut */}
         <div className="chart-card">
           <div className="chart-title">Expense Breakdown</div>
-          <div className="chart-subtitle">// by category</div>
+          <div className="chart-subtitle">{"// by category"}</div>
           {expenseCats.length > 0 ? (
             <div style={{ height: 260, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Doughnut data={donutData} options={{
@@ -210,7 +218,7 @@ export default function Dashboard() {
         {/* Yearly bar chart */}
         <div className="chart-card">
           <div className="chart-title">Yearly Overview</div>
-          <div className="chart-subtitle">// monthly income vs expense · {currentDate.getFullYear()}</div>
+          <div className="chart-subtitle">{"// monthly income vs expense · "}{currentDate.getFullYear()}</div>
           <div style={{ height: 260 }}>
             <Bar data={barData} options={{
               ...chartDefaults,

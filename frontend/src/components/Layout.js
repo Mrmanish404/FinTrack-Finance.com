@@ -17,7 +17,7 @@ export default function Layout() {
       <aside className="sidebar">
         <div className="sidebar-logo">
           <div className="logo-mark">FinTrack</div>
-          <div className="logo-sub">// personal finance</div>
+          <div className="logo-sub">{"// personal finance"}</div>
         </div>
 
         <nav className="sidebar-nav">

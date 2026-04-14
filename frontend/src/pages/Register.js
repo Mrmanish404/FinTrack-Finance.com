@@ -30,7 +30,7 @@ export default function Register() {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-logo">FinTrack</div>
-        <div className="auth-tagline">// track smarter, spend wiser</div>
+        <div className="auth-tagline">{"// track smarter, spend wiser"}</div>
         <h2 className="auth-title">Create account</h2>
 
         <form onSubmit={handleSubmit}>

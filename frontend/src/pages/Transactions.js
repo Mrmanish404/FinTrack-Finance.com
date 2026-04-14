@@ -58,7 +58,7 @@ export default function Transactions() {
       <div className="page-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div>
           <h1 className="page-title">Transactions</h1>
-          <p className="page-subtitle">// {pagination.total || 0} total records</p>
+          <p className="page-subtitle">{"// "}{pagination.total || 0} total records</p>
         </div>
         <button className="btn btn-primary" onClick={openAdd}>
           <MdAdd size={18} /> Add Transaction
@@ -80,12 +80,14 @@ export default function Transactions() {
         <input
           type="date"
           className="filter-select"
+          value={filters.startDate || ''}
           onChange={e => setFilter('startDate', e.target.value)}
           placeholder="From date"
         />
         <input
           type="date"
           className="filter-select"
+          value={filters.endDate || ''}
           onChange={e => setFilter('endDate', e.target.value)}
           placeholder="To date"
         />

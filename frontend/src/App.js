@@ -12,6 +12,13 @@ import Layout from "./components/Layout";
 
 import "./index.css";
 
+const publicUrl = process.env.PUBLIC_URL || '';
+const basename = publicUrl
+  ? (publicUrl.startsWith('http')
+      ? new URL(publicUrl).pathname.replace(/\/$/, '')
+      : publicUrl.replace(/\/$/, ''))
+  : '';
+
 /* ---------------- SAFE PRIVATE ROUTE ---------------- */
 const PrivateRoute = ({ children }) => {
   const auth = useAuth();
@@ -91,7 +98,7 @@ function AppRoutes() {
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter basename="/FinTrack-Finance.com">
+      <BrowserRouter basename={basename}>
         <Toaster
           position="top-right"
           toastOptions={{
