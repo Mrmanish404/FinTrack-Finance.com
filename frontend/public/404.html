@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    var base = '/FinTrack-Finance.com';
+    var path = location.pathname;
+    if (path.indexOf(base) === 0) {
+      path = path.slice(base.length);
+    }
+    var search = location.search || '';
+    var hash = location.hash || '';
+    var redirect = base + '/#' + (path || '/') + search + hash;
+    if (redirect.endsWith('/#')) {
+      redirect = base + '/';
+    }
+    sessionStorage.redirect = redirect;
+    window.location.replace(redirect);
+  </script>
+</head>
+</html>
