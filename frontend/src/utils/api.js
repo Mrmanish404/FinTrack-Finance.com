@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const defaultApiUrl = process.env.REACT_APP_API_URL || (
   process.env.NODE_ENV === 'production'
-    ? 'https://your-render-backend-url.onrender.com/api'
+    ? 'https://finance-tracker-api.onrender.com/api'
     : '/api'
 );
 
