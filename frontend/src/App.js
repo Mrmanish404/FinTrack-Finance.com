@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import { AuthProvider, useAuth } from "./context/AuthContext";
@@ -12,12 +12,6 @@ import Layout from "./components/Layout";
 
 import "./index.css";
 
-const publicUrl = process.env.PUBLIC_URL || '';
-const basename = publicUrl
-  ? (publicUrl.startsWith('http')
-      ? new URL(publicUrl).pathname.replace(/\/$/, '')
-      : publicUrl.replace(/\/$/, ''))
-  : '';
 
 /* ---------------- SAFE PRIVATE ROUTE ---------------- */
 const PrivateRoute = ({ children }) => {
@@ -98,7 +92,7 @@ function AppRoutes() {
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter basename={basename}>
+      <HashRouter>
         <Toaster
           position="top-right"
           toastOptions={{
@@ -111,7 +105,7 @@ export default function App() {
         />
 
         <AppRoutes />
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }
