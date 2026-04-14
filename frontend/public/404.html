@@ -2,17 +2,26 @@
 <html>
 <head>
   <script>
-    var base = '/FinTrack-Finance.com';
     var path = location.pathname;
-    if (path.indexOf(base) === 0) {
-      path = path.slice(base.length);
+    var base = '';
+    var repoBase = '/FinTrack-Finance.com';
+
+    if (path.indexOf(repoBase) === 0) {
+      base = repoBase;
+      path = path.slice(repoBase.length) || '/';
     }
+
+    if (path === '/404.html') {
+      path = '/';
+    }
+
     var search = location.search || '';
     var hash = location.hash || '';
-    var redirect = base + '/#' + (path || '/') + search + hash;
-    if (redirect.endsWith('/#')) {
+    var redirect = base + '/#' + (path === '/' ? '' : path) + search + hash;
+    if (redirect === base + '/#') {
       redirect = base + '/';
     }
+
     sessionStorage.redirect = redirect;
     window.location.replace(redirect);
   </script>
