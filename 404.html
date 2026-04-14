@@ -3,11 +3,10 @@
 <head>
   <script>
     var path = location.pathname;
-    var base = '';
     var repoBase = '/FinTrack-Finance.com';
+    var base = repoBase;
 
     if (path.indexOf(repoBase) === 0) {
-      base = repoBase;
       path = path.slice(repoBase.length) || '/';
     }
 
